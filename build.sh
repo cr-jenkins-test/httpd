@@ -1,2 +1,2 @@
-set -ex
+set -e
 exit 0
