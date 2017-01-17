@@ -1,6 +1,5 @@
 stage("Test") {
   node {
-    sh "echo passed"
-    sh "true"
+    sh "./build.sh"
   }
 }
