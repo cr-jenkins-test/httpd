@@ -1,5 +1,5 @@
 stage("Test") {
   node {
-    sh "./build.sh"
+    sh "bash -x ./build.sh"
   }
 }
