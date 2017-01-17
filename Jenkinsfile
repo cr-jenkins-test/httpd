@@ -1,5 +1,4 @@
-stage("Test") {
-  node {
-    sh "bash -x ./build.sh"
-  }
+node {
+  checkout scm
+  sh "bash -x ./build.sh"
 }
