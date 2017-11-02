@@ -13,7 +13,7 @@ def altiNode(Closure cl) {
 def altiPipelineVersion = '4.9.0'
 
 podTemplate(label: 'cookbook', imagePullSecrets: ['artifactory-pull'], containers: [
-  containerTemplate(name: 'alti-pipeline', image: "altiscale-docker-dev.jfrog.io/alti_pipeline:${altiPipelineVersion}", alwaysPullImage: false /* true */, command: "/bin/sh -c \"trap 'exit 0' TERM; sleep 2147483647 & wait\""),
+  containerTemplate(name: 'alti-pipeline', image: "altiscale-docker-dev.jfrog.io/alti_pipeline:testing" /* "altiscale-docker-dev.jfrog.io/alti_pipeline:${altiPipelineVersion}" */, alwaysPullImage: false /* true */, command: "/bin/sh -c \"trap 'exit 0' TERM; sleep 2147483647 & wait\""),
 ]) {
     // stage('Wat') {
     //     withCredentials([string(credentialsId: 'artifactory-jenkins-dev', variable: 'ARTIFACTORY_API_KEY')]) {
