@@ -42,6 +42,7 @@ podTemplate(label: 'cookbook', imagePullSecrets: ['artifactory-pull'], container
             'Lint': {
                 altiNode {
                     checkout scm
+                    sh 'rm -f Gemfile Gemfile.lock'
                     sh 'rake style'
                 }
             },
@@ -49,6 +50,7 @@ podTemplate(label: 'cookbook', imagePullSecrets: ['artifactory-pull'], container
                 altiNode {
                     checkout scm
                     try {
+                        sh 'rm -f Gemfile Gemfile.lock'
                         sh 'rake spec'
                     } finally {
                         junit 'results.xml'
@@ -58,6 +60,7 @@ podTemplate(label: 'cookbook', imagePullSecrets: ['artifactory-pull'], container
             'Integration Tests': {
                 altiNode {
                     checkout scm
+                    sh 'rm -f Gemfile Gemfile.lock'
                     sh 'kitchen test --destroy always'
                 }
             }
