@@ -1,0 +1,22 @@
+driver:
+  name: kubernetes
+  pod_template: pod.yaml.erb
+  image_pull_policy: IfNotPresent
+  image_pull_secrets: artifactory-pull
+
+platforms:
+- name: prometheus-6.5
+  driver:
+    image: altiscale-docker-dev.jfrog.io/prometheus-6.5.16-201610252329
+  provisioner:
+    chef_solo_path: /usr/bin/chef-solo
+  verifier:
+    ruby_bindir: /usr/bin
+- name: prometheus-6.7
+  driver:
+    image: altiscale-docker-dev.jfrog.io/prometheus-6.7.10-201707192056
+
+suites:
+- name: default
+  run_list:
+  - recipe[vandelay-httpd]

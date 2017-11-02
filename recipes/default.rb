@@ -14,24 +14,26 @@
 # limitations under the License.
 #
 
-httpd_service 'default' do
-  action [:create, :start]
-end
+package 'nginx'
 
 directory '/srv/vandelay' do
-  group 'apache'
+  group 'nginx'
   mode '750'
   owner 'root'
 end
 
 template '/srv/vandelay/index.html' do
-  group 'apache'
+  group 'nginx'
   mode '640'
   owner 'root'
   source 'index.html.erb'
 end
 
-httpd_config 'default' do
-  notifies :restart, 'httpd_service[default]'
+template '/etc/nginx/conf.d/default.conf' do
+  notifies :restart, 'service[nginx]'
   source 'site.conf.erb'
+end
+
+service 'nginx' do
+  action :start
 end

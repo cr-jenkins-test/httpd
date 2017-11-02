@@ -1,5 +1,5 @@
 #
-# Copyright 2016, Noah Kantrowitz
+# Copyright 2017, Noah Kantrowitz
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,9 +14,15 @@
 # limitations under the License.
 #
 
-# Cookbook name.
 name 'vandelay-httpd'
-# Don't need a cookbook version.
+maintainer 'Vandelay Enterpirses'
+maintainer_email 'nope@nope.com'
+license 'All rights reserved'
+description 'Installs/Configures a web server'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+version IO.read(File.join(File.dirname(__FILE__), 'VERSION'))
+source_url "https://github.com/VertiCloud/#{name}-cookbook"
+issues_url "#{source_url}/issues"
+chef_version '>= 11'
 
-# Cookbook dependencies.
-depends 'httpd'
+supports 'prometheus'
