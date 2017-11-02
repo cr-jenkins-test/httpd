@@ -86,4 +86,6 @@
 
 // }
 
-altiCookbook
+altiCookbook {
+  echo "testing"
+}
